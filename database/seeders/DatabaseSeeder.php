@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // 3. Panggil class seeder untuk mengeksekusi seeder
+        //perintah : php artisan db:seed
+        $this->call(ProductSeeder::class);
     }
 }
