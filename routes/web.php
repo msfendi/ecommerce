@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('home', function () {
     return view('home');
 });
+
+// memanggil function dari controller tertentu
+Route::get('product', 'App\Http\Controllers\ProductController@data');
+Route::get('product/add', 'App\Http\Controllers\ProductController@add');
+Route::post('product', 'App\Http\Controllers\ProductController@addProcess');
+Route::get('product/edit/{id}', 'App\Http\Controllers\ProductController@edit');
+Route::patch('product/{id}', 'App\Http\Controllers\ProductController@editProcess');
+Route::delete('product/{id}', 'App\Http\Controllers\ProductController@delete');
