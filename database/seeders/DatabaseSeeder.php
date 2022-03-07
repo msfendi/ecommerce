@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         // 3. Panggil class seeder untuk mengeksekusi seeder
         //perintah : php artisan db:seed
         $this->call(ProductSeeder::class);
+        $this->call(CategorySeeder::class);
     }
 }

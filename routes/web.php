@@ -28,3 +28,5 @@ Route::post('product', 'App\Http\Controllers\ProductController@addProcess');
 Route::get('product/edit/{id}', 'App\Http\Controllers\ProductController@edit');
 Route::patch('product/{id}', 'App\Http\Controllers\ProductController@editProcess');
 Route::delete('product/{id}', 'App\Http\Controllers\ProductController@delete');
+
+Route::resource('categories', 'App\Http\Controllers\CategoryController');
