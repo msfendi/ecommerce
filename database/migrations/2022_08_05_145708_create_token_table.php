@@ -17,7 +17,7 @@ class CreateTokenTable extends Migration
             $table->bigIncrements('id_token');
             $table->string('token_generate', 100);
             $table->timestamp('expired_at');
-            $table->unsignedBigInteger('id_toko');
+            $table->unsignedBigInteger('id_toko')->unsigned()->nullable();
         });
 
         Schema::table('token', function (Blueprint $table) {

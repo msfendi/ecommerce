@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('home', function () {
@@ -30,3 +30,4 @@ Route::patch('product/{id}', 'App\Http\Controllers\ProductController@editProcess
 Route::delete('product/{id}', 'App\Http\Controllers\ProductController@delete');
 
 Route::resource('categories', 'App\Http\Controllers\CategoryController');
+Route::resource('token', 'App\Http\Controllers\TokenController');

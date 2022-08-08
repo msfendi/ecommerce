@@ -40,7 +40,11 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->price}}</td>
-                                    <td>{{$item->image}}</td>
+                                    <td class="text-center">
+                                        @if ($item->image)
+                                            <img src="{{ asset('storage/'.$item->image) }}" class="img-thumbnail" width="100">
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{ url('product/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-pen"></i>

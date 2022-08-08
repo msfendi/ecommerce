@@ -20,8 +20,8 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                                <form action="{{ url('product') }}" method="post">
+                            <div class="col-md-8 offset-md-2">
+                                <form action="{{ url('product') }}" method="post" enctype="multipart/form-data">
                                     {{-- csrf token, untuk melakukan request post --}}
                                     @csrf
                                     <div class="form-group">
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Image</label>
-                                        <input type="text" name="image" class="form-control" autofocus required>
+                                        <input type="file" name="image" class="form-control" accept="image/*" autofocus required>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success">Submit</button>

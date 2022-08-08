@@ -20,8 +20,8 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                                <form action="{{ url('product/'.$product->id) }}" method="post">
+                            <div class="col-md-8 offset-md-2">
+                                <form action="{{ url('product/'.$product->id) }}" method="post" enctype="multipart/form-data">
                                     {{-- disesuaikan dengan method yang digunakan di routes (patch/put), wajib agar tidak error --}}
                                     @method('patch')
                                     {{-- csrf token, untuk melakukan request post --}}
@@ -36,7 +36,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Image</label>
-                                        <input type="text" name="image" class="form-control" value="{{$product->image}}" autofocus required>
+                                        <div class="form-group">
+                                            @if ($product->image)
+                                                <img src="{{ asset('storage/'.$product->image) }}" class="img-thumbnail" width="150">
+                                            @else
+                                                <span class="badge badge-danger">Belum ada foto</span>
+                                            @endif
+                                            <br><br>
+                                            <input type="file" name="image" class="form-control" accept="image/*" autofocus required>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-success">Submit</button>
