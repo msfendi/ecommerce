@@ -51,11 +51,17 @@
   <header class="mb-auto">
     <div>
       <h3 class="float-md-start mb-0">Cover</h3>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
+      <nav class="nav nav-masthead justify-content-center">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="#">Features</a>
         <a class="nav-link" href="#">Contact</a>
       </nav>
+      @if (session('status'))
+        <div class="alert alert-success float-md-end">
+            <p>This is your new token to register!</p>
+            {{ session('status') }}
+        </div>
+      @endif
     </div>
   </header>
 
@@ -63,7 +69,7 @@
     <h1>Cover your page.</h1>
     <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
     <div>
-    <form action="{{ url('token') }}" method="post">
+    <form action="{{ url('token') }}" method="post" onsubmit="myfn()">
         {{-- csrf token, untuk melakukan request post --}}
         @csrf
         <input type="hidden" name="tokenId">
@@ -78,7 +84,31 @@
   </footer>
 </div>
 
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     
-  </body>
+<script>
+  function myfn() {
+    $('#myModal').modal('show');
+  }
+</script>
+
+</body>
 </html>

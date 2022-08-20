@@ -42,11 +42,11 @@ class TokenController extends Controller
         // tambah data ke database
         DB::table('token')->insert([
             'token_generate' => $generateToken,
-            'expired_at' => Carbon::now()->addHour(),
+            'expired_at' => Carbon::now('Asia/Jakarta')->addHour(),
         ]);
 
-        $latestToken = DB::table('token')->latest('token_generate')->first();
-        return redirect()->back()->with('alert', $latestToken);
+        $latestToken = DB::table('token')->latest('id_token')->first();
+        return redirect()->back()->with('status', $latestToken->token_generate);
     }
 
     /**
